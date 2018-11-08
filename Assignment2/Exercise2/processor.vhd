@@ -367,7 +367,7 @@ begin
 			DRdEn <= EX_MemRead;
 			DWrEn <= EX_MemWrite;
 			DAddrAux <= Result;
-			DDataOut <= EX_Rd2;
+			DDataOut <= MuxALUOp2;
 			MEM_MuxRegDst <= MuxRegDst;
 		end if;
 	end process;

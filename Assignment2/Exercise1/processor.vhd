@@ -376,7 +376,7 @@ begin
 			MEM_AuxiliaryALU <= AuxiliaryALU;
 			MEM_ZFlag <= ZFlag;
 			DAddrAux <= Result;
-			DDataOut <= EX_Rd2;
+			DDataOut <= MuxALUOp2;
 			MEM_MuxRegDst <= MuxRegDst;
 		end if;
 	end process;
