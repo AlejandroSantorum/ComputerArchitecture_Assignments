@@ -8,14 +8,14 @@ filename_in = str(sys.argv[1])
 M = int(sys.argv[2])
 filename_out = str(sys.argv[3])
 
-# Initializing arrays to read the data
+# Initializing data arrays
+array_sizes = []
 array_slow_times = []
 array_fast_times = []
-array_sizes = []
 for i in range(M):
+	array_sizes.append(0)
 	array_slow_times.append(0)
 	array_fast_times.append(0)
-	array_sizes.append(0)
 
 # Reading data
 file_in = open(filename_in, "r")
@@ -38,4 +38,5 @@ for i in range(M):
 # Saving mean values into the specified file
 file_out = open(filename_out, "w")
 for i in range(M):
-	file_out.write(str(array_sizes[i])+" "+str(array_slow_times[i])+" "+str(array_fast_times[i])+"\n")
+	file_out.write(str(array_sizes[i]) + " " + str(array_slow_times[i]) +\
+					 " " +str(array_fast_times[i])+ "\n")

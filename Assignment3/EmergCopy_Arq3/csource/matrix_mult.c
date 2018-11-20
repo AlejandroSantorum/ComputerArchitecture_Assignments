@@ -4,7 +4,7 @@
 
 #include "arqo3.h"
 
-tipo** compute_transMatrix_mult(tipo **m1, tipo **m2, int n);
+tipo** compute_matrix_mult(tipo **m1, tipo **m2, tipo **res, int n);
 
 int main(int argc, char **argv){
 	int n;
@@ -31,10 +31,15 @@ int main(int argc, char **argv){
 		printf("ERROR: unable to allocate memory for matrix 2\n");
 		return -1;
 	}
+	res = generateEmptyMatrix(n);
+	if(!res){
+		printf("ERROR: unable to allocate memory for matrix result\n");
+		return -1;
+	}
 
 	gettimeofday(&ini,NULL);
 	/* Main computation */
-	res = compute_transMatrix_mult(m1, m2, n);
+	res = compute_matrix_mult(m1, m2, res, n);
 	/* End of computation */
 	gettimeofday(&fin,NULL);
 	if(!res){
@@ -51,21 +56,15 @@ int main(int argc, char **argv){
 
 }
 
-tipo** compute_transMatrix_mult(tipo **m1, tipo **m2, int n){
-	tipo **res=NULL;
+tipo** compute_matrix_mult(tipo **m1, tipo **m2, tipo **res, int n){
 	tipo aux;
 	int i,j,k;
-
-	res = generateEmptyMatrix(n);
-	if(!res){
-		return NULL;
-	}
 
 	for(i=0; i<n; i++){
 		for(j=0; j<n; j++){
 			aux = 0;
 			for(k=0; k<n; k++){
-				aux += m1[i][k]*m2[j][k];
+				aux += m1[i][k]*m2[k][j];
 			}
 			res[i][j] = aux;
 		}

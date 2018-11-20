@@ -14,5 +14,6 @@
 tipo** generateMatrix(int);
 tipo** generateEmptyMatrix(int);
 void freeMatrix(tipo **);
+void printMatrix(tipo **matrix, int size);
 
 #endif /* _ARQO_P3_H_ */

@@ -4,13 +4,15 @@
 
 #include "arqo3.h"
 
-tipo** compute_matrix_mult(tipo **m1, tipo **m2, int n);
+void transpose_matrix(tipo **matrix, tipo **transp_res, int n);
+tipo** compute_transMatrix_mult(tipo **m1, tipo **m2, tipo **res, int n);
 
 int main(int argc, char **argv){
 	int n;
 	tipo **m1=NULL;
 	tipo **m2=NULL;
 	tipo **res=NULL;
+	tipo **transp_res=NULL;
 	struct timeval fin,ini;
 
 	printf("Word size: %ld bits\n",8*sizeof(tipo));
@@ -31,10 +33,21 @@ int main(int argc, char **argv){
 		printf("ERROR: unable to allocate memory for matrix 2\n");
 		return -1;
 	}
+	transp_res = generateEmptyMatrix(n);
+	if(!transp_res){
+		printf("ERROR: unable to allocate memory for transposed matrix\n");
+		return -1;
+	}
+	res = generateEmptyMatrix(n);
+	if(!res){
+		printf("ERROR: unable to allocate memory for matrix result\n");
+		return -1;
+	}
 
 	gettimeofday(&ini,NULL);
 	/* Main computation */
-	res = compute_matrix_mult(m1, m2, n);
+	transpose_matrix(m2, transp_res, n);
+	res = compute_transMatrix_mult(m1, transp_res, res, n);
 	/* End of computation */
 	gettimeofday(&fin,NULL);
 	if(!res){
@@ -46,26 +59,32 @@ int main(int argc, char **argv){
 
 	freeMatrix(m1);
 	freeMatrix(m2);
+	freeMatrix(transp_res);
 	freeMatrix(res);
 	return 0;
 
 }
 
-tipo** compute_matrix_mult(tipo **m1, tipo **m2, int n){
-	tipo **res=NULL;
+void transpose_matrix(tipo **matrix, tipo **transp_res, int n){
+	int i,j;
+
+	for(i=0; i<n; i++){
+		for(j=0; j<n; j++){
+			transp_res[j][i] = matrix[i][j];
+		}
+	}
+	return;
+}
+
+tipo** compute_transMatrix_mult(tipo **m1, tipo **m2, tipo **res, int n){
 	tipo aux;
 	int i,j,k;
-
-	res = generateEmptyMatrix(n);
-	if(!res){
-		return NULL;
-	}
 
 	for(i=0; i<n; i++){
 		for(j=0; j<n; j++){
 			aux = 0;
 			for(k=0; k<n; k++){
-				aux += m1[i][k]*m2[k][j];
+				aux += m1[i][k]*m2[j][k];
 			}
 			res[i][j] = aux;
 		}
