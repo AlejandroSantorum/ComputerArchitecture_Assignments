@@ -1,8 +1,8 @@
 #!/bin/bash
 
-Ninicial=100 #11216 #2000+1024*9
-Nstep=50 #64
-Nfinal=1000 #12240 #2000+1024*10
+Ninicial=11216 #2000+1024*9  P=(19%7)+4=9
+Nstep=64
+Nfinal=12240 #2000+1024*10
 M=$(( ((Nfinal-Ninicial)/Nstep)+1 )) # Number of different matrix sizes
 fCachegrind=cachegrind_file_E2.dat
 fD=.dat
@@ -16,7 +16,11 @@ fPlotMW=files/exercise2/cache_escritura.png
 echo "Running script..."
 
 # Delete data and PNG files
-rm -f $fPlotMR $fPlotMW $Cachegrind $fcache_1024.dat $fcache_2048.dat $fcache_4096.dat $fcache_8192.dat
+rm -f $fPlotMR $fPlotMW
+rm -f files/exercise2/cache_1024.dat
+rm -f files/exercise2/cache_2048.dat
+rm -f files/exercise2/cache_4096.dat
+rm -f files/exercise2/cache_8192.dat
 
 for((k = 0 ; k < 4 ; k += 1)); do
 	size=$((base*(2**k)))

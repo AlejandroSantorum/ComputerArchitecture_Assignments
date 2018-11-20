@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Ninicial=320 #32+32*9
+Ninicial=320 #32+32*9  P=(19%7)+4=9
 Nstep=4
 Nfinal=352 #32+32*10
 Nrep=30
@@ -45,12 +45,12 @@ for((k = 0 ; k < 4 ; k += 1)); do
 			echo "$N $normalTime $normalMR $normalMW $transTime $transMR $transMW" >> $fD1$size$fD2
 		done
 	done
-	python ./cal_mean_mult_cache.py $fD1$size$fD2 $M $fM$size$fD2
+	python ./pythonSource/cal_mean_mult_cache.py $fD1$size$fD2 $M $fM$size$fD2
 done
 
 echo "Generating plots..."
 gnuplot << END_GNUPLOT
-set title "Normal-Trans Mult Execution Times"
+set title "Matrix Multiplication Execution Time"
 set ylabel "Execution time (s)"
 set xlabel "Matrix size (dim)"
 set key left top
@@ -67,7 +67,7 @@ plot "files/exercise4/data_1024.dat" using 1:2 with lines lw 2 title "normal - c
 	 "files/exercise4/data_8192.dat" using 1:5 with lines lw 2 title "trans - cache=8192"
 replot
 set output "$fPlotMR"
-set title "Normal-Trans Mult Reading Miss Rate"
+set title "Matrix Multiplication Reading Miss Rate"
 set ylabel "Miss rate (n misses)"
 set xlabel "Matrix size (dim)"
 set key left top
@@ -83,7 +83,7 @@ plot "files/exercise4/data_1024.dat" using 1:3 with lines lw 2 title "normal - c
 	 "files/exercise4/data_8192.dat" using 1:6 with lines lw 2 title "trans - cache=8192"
 replot
 set output "$fPlotMW"
-set title "Normal-Trans Mult Writing Miss Rate"
+set title "Matrix Multiplication Writing Miss Rate"
 set ylabel "Miss rate (n misses)"
 set xlabel "Matrix size (dim)"
 set key left top

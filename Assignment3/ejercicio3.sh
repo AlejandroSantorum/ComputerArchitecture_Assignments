@@ -1,9 +1,9 @@
 #!/bin/bash
 
-Ninicial=640 #64+64*9
+Ninicial=640 #64+64*9 P=(19%7)+4=9
 Nstep=16
 Nfinal=704 #64+64*10
-Nrep=30
+Nrep=40
 M=$(( ((Nfinal-Ninicial)/Nstep)+1 )) # Number of different matrix sizes
 fCachegrind=cachegrind_file_E3.dat
 base=1024
@@ -48,7 +48,7 @@ for((N = Ninicial ; N <= Nfinal ; N += Nstep)); do
 done
 
 # Calculating mean values and putting all together with python
-python ./cal_mean_matrix_mult.py $fT $fC $M $fM
+python ./pythonSource/cal_mean_matrix_mult.py $fT $fC $M $fM
 
 echo "Generating plots..."
 gnuplot << END_GNUPLOT
@@ -63,7 +63,7 @@ plot "$fM" using 1:2 with lines lw 2 title "normal", \
 	 "$fM" using 1:5 with lines lw 2 title "trans"
 replot
 set output "$fPlotMR"
-set title "Slow-Fast Reading Miss Rate"
+set title "Normal-Trans Reading Miss Rate"
 set ylabel "Miss rate (n misses)"
 set xlabel "Matrix size (dim)"
 set key left top
@@ -73,7 +73,7 @@ plot "$fM" using 1:3 with lines lw 2 title "normal", \
 	 "$fM" using 1:6 with lines lw 2 title "trans"
 replot
 set output "$fPlotMW"
-set title "Slow-Fast Writing Miss Rate"
+set title "Normal-Trans Writing Miss Rate"
 set ylabel "Miss rate (n misses)"
 set xlabel "Matrix size (dim)"
 set key left top

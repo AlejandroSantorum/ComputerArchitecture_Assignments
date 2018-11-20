@@ -1,9 +1,9 @@
 #!/bin/bash
 
-Ninicial=19216 #10000+1024*9
+Ninicial=19216 #10000+1024*9 P=(19%7)+4=9
 Nstep=64
 Nfinal=20240 #10000+1024*10
-Nrep=10
+Nrep=15
 M=$(( ((Nfinal-Ninicial)/Nstep)+1 )) # Number of different matrix sizes
 fD=data.dat
 fM=files/exercise1/time_slow_fast.dat
@@ -24,7 +24,7 @@ for((i = 1 ; i <= Nrep ; i += 1)); do
 done
 
 # Calculating mean values with python
-python ./cal_mean_fast_slow.py $fD $M $fM
+python ./pythonSource/cal_mean_fast_slow.py $fD $M $fM
 
 echo "Generating plots..."
 gnuplot << END_GNUPLOT
