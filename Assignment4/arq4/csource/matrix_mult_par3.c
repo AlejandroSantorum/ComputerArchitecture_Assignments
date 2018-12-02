@@ -25,7 +25,6 @@ int main(int argc, char **argv){
 		printf("Number of threads introduced: %d\n", (n_thr=atoi(argv[2])));
 		omp_set_num_threads(n_thr);
 	}
-
 	n = atoi(argv[1]);
 
 	m1 = generateMatrix(n);

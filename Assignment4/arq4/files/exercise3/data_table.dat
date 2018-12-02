@@ -1,0 +1,21 @@
+------------------ I N F O ----------------------
+MATRIX SIZES: size1 = 1220		size2 = 2020
+NUMBER OF REPETITIONS: 5
+-------------------------------------------------
+STANDARD: time1 = 8.4983964 		time2 = 58.3480174
+NUMBER OF THREADS for the data below: 1
+Par1 size1 = 13.350046		Par1 size2 = 74.7606736
+Par2 size1 = 3.1350178		Par2 size2 = 17.822639
+Par3 size1 = 3.1350178		Par3 size2 = 17.822639
+NUMBER OF THREADS for the data below: 2
+Par1 size1 = 9.2460654		Par1 size2 = 38.7735848
+Par2 size1 = 1.789107		Par2 size2 = 10.4536464
+Par3 size1 = 1.789107		Par3 size2 = 10.4536464
+NUMBER OF THREADS for the data below: 3
+Par1 size1 = 9.2393818		Par1 size2 = 40.1243522
+Par2 size1 = 2.0201396		Par2 size2 = 9.9824434
+Par3 size1 = 2.0201396		Par3 size2 = 9.9824434
+NUMBER OF THREADS for the data below: 4
+Par1 size1 = 8.0711678		Par1 size2 = 31.4900308
+Par2 size1 = 1.5842776		Par2 size2 = 7.9171194
+Par3 size1 = 1.5842776		Par3 size2 = 7.9171194

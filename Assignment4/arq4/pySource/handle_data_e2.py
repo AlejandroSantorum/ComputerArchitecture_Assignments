@@ -69,7 +69,6 @@ for k in range(n_cores):
 
 	foutP = open(fout+str(k+1)+fext, "w")
 	for i in range(M):
-
 		foutP.write(str(sizes[i]) + " " + str(times[i]) + " " + str(float(linesSerie[i].split()[1])/times[i]) + "\n")
 	foutP.close()
 fpar.close()

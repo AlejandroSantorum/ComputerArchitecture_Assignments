@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
+#include <omp.h>
 
 #include "arqo4.h"
 
 float** compute_matrix_mult(float **m1, float **m2, float **res, int n);
 
 int main(int argc, char **argv){
-	int n;
+	int n, n_thr;
 	float **m1=NULL;
 	float **m2=NULL;
 	float **res=NULL;
@@ -15,9 +16,14 @@ int main(int argc, char **argv){
 
 	printf("Word size: %ld bits\n",8*sizeof(float));
 
-	if(argc!=2){
-		printf("Error: format -> %s <matrix size>\n", argv[0]);
+	if(argc<2){
+		printf("Error: introduce matrix size and, optionally, number of threads:\n");
+		printf("---> %s <matrix size> [<# threads>]\n", argv[0]);
 		return -1;
+	}
+	else if(argc == 3){
+		printf("Number of threads introduced: %d\n", (n_thr=atoi(argv[2])));
+		omp_set_num_threads(n_thr);
 	}
 	n = atoi(argv[1]);
 
