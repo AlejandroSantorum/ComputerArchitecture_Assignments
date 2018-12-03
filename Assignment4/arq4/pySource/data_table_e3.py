@@ -18,7 +18,7 @@ fout_name = str(sys.argv[6])
 fin = open(fin_name, "r")
 lines = fin.readlines()
 n_lines = len(lines)
-n_lines_per_thr = (n_lines-n_reps)/n_thr;
+n_lines_per_thr = (n_lines-n_reps)/n_thr
 fout = open(fout_name, "w")
 
 # Processing data
@@ -31,11 +31,11 @@ for i in range(n_reps):
 	ser2 += float(data[1])
 ser1 /= n_reps
 ser2 /= n_reps
-fout.write("------------------ I N F O ----------------------\n");
-fout.write("MATRIX SIZES: size1 = "+str(size1)+"		size2 = "+str(size2)+"\n");
-fout.write("NUMBER OF REPETITIONS: "+str(n_reps)+"\n");
+fout.write("------------------ I N F O ----------------------\n")
+fout.write("MATRIX SIZES: size1 = "+str(size1)+"		size2 = "+str(size2)+"\n")
+fout.write("NUMBER OF REPETITIONS: "+str(n_reps)+"\n")
 fout.write("-------------------------------------------------\n");
-fout.write("STANDARD: time1 = "+str(ser1)+" 		time2 = "+str(ser2)+"\n");
+fout.write("STANDARD: time1 = "+str(ser1)+" 		time2 = "+str(ser2)+"\n")
 
 for k in range(n_thr):
 	par1_1 = 0.0
@@ -55,7 +55,7 @@ for k in range(n_thr):
 		data = line.split()
 		par2_1 = float(data[1])
 		par2_2 = float(data[2])
-		line = lines[index+1]
+		line = lines[index+2]
 		data = line.split()
 		par3_1 = float(data[1])
 		par3_2 = float(data[2])
@@ -69,9 +69,12 @@ for k in range(n_thr):
 	par3_2 /= n_reps
 
 	fout.write("NUMBER OF THREADS for the data below: "+str(k+1)+"\n");
-	fout.write("Par1 size1 = "+str(par1_1)+"		Par1 size2 = "+str(par1_2)+"\n");
-	fout.write("Par2 size1 = "+str(par2_1)+"		Par2 size2 = "+str(par2_2)+"\n");
-	fout.write("Par3 size1 = "+str(par3_1)+"		Par3 size2 = "+str(par3_2)+"\n");
+	fout.write("Par1 size1 time = "+str(par1_1)+"		Par1 size2 time = "+str(par1_2)+"\n")
+	fout.write("Par2 size1 time = "+str(par2_1)+"		Par2 size2 time = "+str(par2_2)+"\n")
+	fout.write("Par3 size1 time = "+str(par3_1)+"		Par3 size2 time = "+str(par3_2)+"\n")
+	fout.write("Par1 size1 speedUp = "+str(par1_1/ser1)+"		Par1 size2 speedUp = "+str(par1_2/ser2)+"\n")
+	fout.write("Par2 size1 speedUp = "+str(par2_1/ser1)+"		Par2 size2 speedUp = "+str(par2_2/ser2)+"\n")
+	fout.write("Par3 size1 speedUp = "+str(par3_1/ser1)+"		Par1 size2 speedUp = "+str(par3_2/ser2)+"\n")
 
 fin.close()
 fout.close()
