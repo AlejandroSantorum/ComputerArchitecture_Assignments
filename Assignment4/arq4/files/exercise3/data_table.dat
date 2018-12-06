@@ -2,20 +2,32 @@
 MATRIX SIZES: size1 = 1220		size2 = 2020
 NUMBER OF REPETITIONS: 5
 -------------------------------------------------
-STANDARD: time1 = 8.4983964 		time2 = 58.3480174
+STANDARD: time1 = 9.395127 		time2 = 65.2749192
 NUMBER OF THREADS for the data below: 1
-Par1 size1 = 13.350046		Par1 size2 = 74.7606736
-Par2 size1 = 3.1350178		Par2 size2 = 17.822639
-Par3 size1 = 3.1350178		Par3 size2 = 17.822639
+Par1 size1 time = 13.7497514		Par1 size2 time = 76.4462278
+Par2 size1 time = 3.2396502		Par2 size2 time = 19.5210934
+Par3 size1 time = 3.038337		Par3 size2 time = 18.82115
+Par1 size1 speedUp = 0.683294317598		Par1 size2 speedUp = 0.853867104742
+Par2 size1 speedUp = 2.90004365286		Par2 size2 speedUp = 3.34381470661
+Par3 size1 speedUp = 3.09219385473		Par1 size2 speedUp = 3.46816848067
 NUMBER OF THREADS for the data below: 2
-Par1 size1 = 9.2460654		Par1 size2 = 38.7735848
-Par2 size1 = 1.789107		Par2 size2 = 10.4536464
-Par3 size1 = 1.789107		Par3 size2 = 10.4536464
+Par1 size1 time = 9.8679494		Par1 size2 time = 45.1177474
+Par2 size1 time = 1.9195712		Par2 size2 time = 11.1186258
+Par3 size1 time = 1.9050254		Par3 size2 time = 10.439275
+Par1 size1 speedUp = 0.952085040079		Par1 size2 speedUp = 1.44676813364
+Par2 size1 speedUp = 4.89438839257		Par2 size2 speedUp = 5.87077219561
+Par3 size1 speedUp = 4.93175944006		Par1 size2 speedUp = 6.25282112024
 NUMBER OF THREADS for the data below: 3
-Par1 size1 = 9.2393818		Par1 size2 = 40.1243522
-Par2 size1 = 2.0201396		Par2 size2 = 9.9824434
-Par3 size1 = 2.0201396		Par3 size2 = 9.9824434
+Par1 size1 time = 9.5810612		Par1 size2 time = 42.0862128
+Par2 size1 time = 2.1077924		Par2 size2 time = 10.740757
+Par3 size1 time = 1.51175		Par3 size2 time = 8.7005608
+Par1 size1 speedUp = 0.980593569322		Par1 size2 speedUp = 1.55098106618
+Par2 size1 speedUp = 4.45733033291		Par2 size2 speedUp = 6.07731086366
+Par3 size1 speedUp = 6.2147359021		Par1 size2 speedUp = 7.50238067413
 NUMBER OF THREADS for the data below: 4
-Par1 size1 = 8.0711678		Par1 size2 = 31.4900308
-Par2 size1 = 1.5842776		Par2 size2 = 7.9171194
-Par3 size1 = 1.5842776		Par3 size2 = 7.9171194
+Par1 size1 time = 8.162927		Par1 size2 time = 33.3495506
+Par2 size1 time = 1.6531294		Par2 size2 time = 8.3840398
+Par3 size1 time = 1.4212788		Par3 size2 time = 7.13496
+Par1 size1 speedUp = 1.15095075578		Par1 size2 speedUp = 1.9572953166
+Par2 size1 speedUp = 5.68323750095		Par2 size2 speedUp = 7.78561657114
+Par3 size1 speedUp = 6.61033359535		Par1 size2 speedUp = 9.1486033839

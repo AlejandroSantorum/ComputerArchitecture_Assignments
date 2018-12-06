@@ -72,9 +72,9 @@ for k in range(n_thr):
 	fout.write("Par1 size1 time = "+str(par1_1)+"		Par1 size2 time = "+str(par1_2)+"\n")
 	fout.write("Par2 size1 time = "+str(par2_1)+"		Par2 size2 time = "+str(par2_2)+"\n")
 	fout.write("Par3 size1 time = "+str(par3_1)+"		Par3 size2 time = "+str(par3_2)+"\n")
-	fout.write("Par1 size1 speedUp = "+str(par1_1/ser1)+"		Par1 size2 speedUp = "+str(par1_2/ser2)+"\n")
-	fout.write("Par2 size1 speedUp = "+str(par2_1/ser1)+"		Par2 size2 speedUp = "+str(par2_2/ser2)+"\n")
-	fout.write("Par3 size1 speedUp = "+str(par3_1/ser1)+"		Par1 size2 speedUp = "+str(par3_2/ser2)+"\n")
+	fout.write("Par1 size1 speedUp = "+str(ser1/par1_1)+"		Par1 size2 speedUp = "+str(ser2/par1_2)+"\n")
+	fout.write("Par2 size1 speedUp = "+str(ser1/par2_1)+"		Par2 size2 speedUp = "+str(ser2/par2_2)+"\n")
+	fout.write("Par3 size1 speedUp = "+str(ser1/par3_1)+"		Par1 size2 speedUp = "+str(ser2/par3_2)+"\n")
 
 fin.close()
 fout.close()

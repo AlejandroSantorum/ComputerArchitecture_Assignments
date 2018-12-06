@@ -1,9 +1,9 @@
 #!/bin/bash
 
-Ninicial=200 #516 # 512 + P ; P = 4
-Nfinal=1000 #1540 # 1024+512+P ; P = 4
-step=100 #64
-Nrep=1 #5
+Ninicial=516 # 512 + P ; P = 4
+Nfinal=1540 # 1024+512+P ; P = 4
+step=64
+Nrep=7
 Cbest=4
 fPreData=files/exercise3/preData_grap.dat
 fData=files/exercise3/data_graph.dat
